@@ -1,4 +1,30 @@
 {
+  "extensions": {
+    "authentication": {
+      "cookieSession": {
+        "secret": "<cookie secret here>"
+      },
+      "admin": {
+        "username": "admin",
+        "password": "password"
+      },
+      "enabled": true
+    },
+    "scripts": {
+      "timeout": 40000,
+      "strategy": "http-server"
+    },
+    "fs-store": {
+      "persistence": {
+        "provider": "azure-storage"
+      }
+    },
+    "fs-store-azure-storage-persistence": {
+      "accountName": "<azure account name here>",
+      "accountKey": "<azure account key here>",
+      "container": "<azure container name here>"
+    }
+  },
   "httpPort": 5488,
   "store": {
     "provider": "fs"
@@ -22,22 +48,13 @@
       "filename": "logs/error.log"
     }
   },
-  "trustUserCode": false,
-  "reportTimeout": 60000,
-  "workers": {
-    "numberOfWorkers": 2
+  "templatingEngines": {
+    "timeout": 10000,
+    "strategy": "http-server"
   },
-  "extensions": {
-    "authentication": {
-      "cookieSession": {},
-      "admin": {
-        "username": "admin",
-        "password": "password"
-      },
-      "enabled": false
-    },
-    "sample-template": {
-      "createSamples": true
-    }
-  }
+  "chrome": {
+    "timeout": 40000
+  },
+  "trustUserCode": true,
+  "sandbox": { "allowedModules": ["handlebars-helpers"] }
 }

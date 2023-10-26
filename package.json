@@ -9,6 +9,7 @@
     "entryPoint": "server.js"
   },
   "dependencies": {
+    "@jsreport/jsreport-fs-store-azure-storage-persistence": "^4.0.0",
     "jsreport": "^4.1.0"
   }
 }
